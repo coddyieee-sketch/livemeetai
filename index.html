@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Meet AI - The Ultimate SQL & Coding Copilot</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <div class="logo">
+        <div class="logo-dot"></div>
+        <span>Live Meet AI <span style="font-size: 0.75rem; font-weight: 500; color: var(--text-muted); margin-left: 4px;">by Codyie-sketch</span></span>
+      </div>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#demo">Preview</a>
+        <a href="#pricing">Pricing</a>
+        <a href="mailto:stolenstoneme@gmail.com">Contact</a>
+        <a href="Live_Meet_AI_Setup_1.0.0.exe" download class="nav-btn">Download Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="tagline">🚀 100% Undetectable Screen Protection</div>
+        <h1>Your Secret SQL & Coding Copilot</h1>
+        <p>
+          Live Meet AI sits invisibly on your screen, floating real-time code solutions, query optimization tips, and SQL Join diagrams during coding interviews. Built with true desktop-level protection that remains 100% hidden on Zoom, Teams, Meet, OBS, and screenshots.
+        </p>
+        <div class="hero-actions">
+          <a href="Live_Meet_AI_Setup_1.0.0.exe" download class="btn-primary flex-row items-center gap-8">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Download for Windows (x64)</span>
+          </a>
+          <a href="#demo" class="btn-secondary">Watch Preview</a>
+        </div>
+        <div class="installer-version">Version 1.0.0 • Standalone Setup Executable</div>
+      </div>
+      
+      <div class="hero-visual" id="demo">
+        <div class="image-wrapper simulator-container" id="demo-player">
+          <!-- Interactive Simulator Screen (Visible by default) -->
+          <div class="simulator-screen" id="simulator-screen">
+            <!-- Simulated Zoom Meeting Window header -->
+            <div class="sim-header">
+              <div class="sim-dots"><span></span><span></span><span></span></div>
+              <div class="sim-title">Zoom Meeting - Technical Interview</div>
+              <div class="protection-status-badge" id="protection-status-badge">🛡️ Protection: Active</div>
+            </div>
+            
+            <div class="sim-body">
+              <!-- Grid of feeds (Interviewer & Candidate) -->
+              <div class="meeting-feeds">
+                <div class="feed interviewer-feed">
+                  <div class="feed-avatar">💻</div>
+                  <div class="feed-name">Interviewer</div>
+                </div>
+                <div class="feed candidate-feed">
+                  <div class="feed-avatar">👤</div>
+                  <div class="feed-name">You (Candidate)</div>
+                </div>
+              </div>
+              
+              <!-- Floating Live Meet AI Widget (Interactive) -->
+              <div class="floating-widget" id="sim-widget">
+                <div class="widget-header">
+                  <span class="widget-logo">Live Meet AI</span>
+                  <div class="widget-controls">
+                    <button class="protection-toggle-btn active" id="protection-toggle" onclick="toggleSimProtection()">Protection ON</button>
+                  </div>
+                </div>
+                <div class="widget-body">
+                  <div class="audio-wave-container" id="sim-wave-container">
+                    <span class="wave-bar"></span>
+                    <span class="wave-bar"></span>
+                    <span class="wave-bar"></span>
+                    <span class="wave-bar"></span>
+                    <span class="wave-text" id="sim-wave-text">Listening to audio...</span>
+                  </div>
+                  
+                  <div class="transcription-bubble" id="sim-transcription">
+                    <!-- Typed text goes here -->
+                  </div>
+                  
+                  <div class="answer-card" id="sim-answer-card" style="display: none;">
+                    <div class="answer-tab-headers">
+                      <span class="tab active" id="tab-code-btn">Code</span>
+                      <span class="tab" id="tab-diagram-btn">SQL Diagram</span>
+                    </div>
+                    <div class="answer-content" id="sim-answer-content">
+                      <!-- Streaming content goes here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Simulation Controls Overlay -->
+            <div class="sim-controls">
+              <span class="sim-status" id="sim-status">Press play to begin</span>
+              <button class="sim-btn" id="restart-demo-btn" onclick="startInteractiveDemo()">Restart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Engineered for Technical Interviews</h2>
+        <p>Everything you need to showcase optimal problem-solving capability silently.</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Undetectable Protection</h3>
+          <p>Utilizes hardware-level overlay APIs that are invisible to capture engines. Screen share with confidence on Discord, Meet, and Slack.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🎤</div>
+          <h3>Real-Time Speech Sync</h3>
+          <p>Syncs with your microphone and system audio to listen to interviewer questions, automatically handling follow-ups with active context memory.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Interactive SQL Diagrams</h3>
+          <p>Instantly visualizes SQL Joins, schema relationships, and database query optimizations when a database question is transcribed.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚙️</div>
+          <h3>Global Hotkeys</h3>
+          <p>Quickly adjust transparency overlay, toggle mouse click-through, trigger manual screenshots, or snap the panel to any screen quadrant.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2>Simple, Hourly Upgrades</h2>
+        <p>Only pay for the exact session runtime you need. No monthly recurring fees.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Basic -->
+        <div class="pricing-card">
+          <div class="pricing-title">Basic Copilot</div>
+          <div class="pricing-price">₹99<span>/ hour</span></div>
+          <div class="pricing-badge">1 Hour Runtime</div>
+          <ul class="pricing-features">
+            <li>Access to Claude 3.5 & GPT-4o</li>
+            <li>100% Invisible Screen Protection</li>
+            <li>Speech-to-Text Audio mixing</li>
+            <li>Standard Q&A coaching logs</li>
+          </ul>
+          <a href="Live_Meet_AI_Setup_1.0.0.exe" download class="pricing-btn">Download & Upgrade</a>
+        </div>
+
+        <!-- Pro -->
+        <div class="pricing-card popular">
+          <div class="popular-ribbon">Most Popular</div>
+          <div class="pricing-title">Pro Copilot</div>
+          <div class="pricing-price">₹499<span>/ 6 hours</span></div>
+          <div class="pricing-badge">6 Hours Runtime</div>
+          <ul class="pricing-features">
+            <li>All Basic features included</li>
+            <li>Extended continuous session</li>
+            <li>STAR contradiction alerts</li>
+            <li>Coding OCR & LeetCode scans</li>
+            <li>Priority low-latency load</li>
+          </ul>
+          <a href="Live_Meet_AI_Setup_1.0.0.exe" download class="pricing-btn btn-accent">Download & Upgrade</a>
+        </div>
+
+        <!-- Ultimate -->
+        <div class="pricing-card">
+          <div class="pricing-title">Ultimate Copilot</div>
+          <div class="pricing-price">₹1999<span>/ 24 hours</span></div>
+          <div class="pricing-badge">24 Hours Runtime</div>
+          <ul class="pricing-features">
+            <li>Full unrestricted 24h access</li>
+            <li>All premium AI models enabled</li>
+            <li>Dedicated server resources</li>
+            <li>Prompt engineering coaching</li>
+            <li>Exclusive discord access</li>
+          </ul>
+          <a href="Live_Meet_AI_Setup_1.0.0.exe" download class="pricing-btn">Download & Upgrade</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation Steps Section -->
+  <section class="steps">
+    <div class="container">
+      <div class="section-header">
+        <h2>Get Started in 3 Simple Steps</h2>
+      </div>
+      
+      <div class="steps-container">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Download Installer</h3>
+          <p>Click any download link to fetch the lightweight <code>Live Meet AI Setup 1.0.0.exe</code> NSIS installer.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Run Setup</h3>
+          <p>Launch the setup installer. It extracts the package and creates a secure desktop shortcut in 5 seconds.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Launch Copilot</h3>
+          <p>Open the app, configure your microphone, and select your interview mode. You are ready to start!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <h3>Live Meet AI <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-muted);">by Codyie-sketch</span></h3>
+        <p>Premium overlay assistance for modern developers.</p>
+        <p style="margin-top: 8px; font-size: 0.85rem; color: var(--primary);">Contact: <a href="mailto:stolenstoneme@gmail.com" style="color: var(--primary); text-decoration: underline;">stolenstoneme@gmail.com</a></p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Live Meet AI by Codyie-sketch. All rights reserved. Built for Windows x64.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let simTimeout = null;
+    let simInterval = null;
+    let isProtectionOn = true;
+
+    function toggleSimProtection() {
+      const btn = document.getElementById('protection-toggle');
+      const badge = document.getElementById('protection-status-badge');
+      const widget = document.getElementById('sim-widget');
+      
+      isProtectionOn = !isProtectionOn;
+      if (isProtectionOn) {
+        btn.classList.add('active');
+        btn.innerText = 'Protection ON';
+        badge.innerText = '🛡️ Protection: Active';
+        badge.style.color = '#10b981';
+        widget.classList.remove('invisible-mode');
+      } else {
+        btn.classList.remove('active');
+        btn.innerText = 'Protection OFF';
+        badge.innerText = '⚠️ Protection: Disabled';
+        badge.style.color = '#ef4444';
+        widget.classList.add('invisible-mode');
+      }
+    }
+
+    function startInteractiveDemo() {
+      // Clear previous simulations
+      if (simTimeout) clearTimeout(simTimeout);
+      if (simInterval) clearInterval(simInterval);
+      
+      const waveText = document.getElementById('sim-wave-text');
+      const transcript = document.getElementById('sim-transcription');
+      const answerCard = document.getElementById('sim-answer-card');
+      const answerContent = document.getElementById('sim-answer-content');
+      const statusText = document.getElementById('sim-status');
+      const codeTab = document.getElementById('tab-code-btn');
+      const diagramTab = document.getElementById('tab-diagram-btn');
+      const widget = document.getElementById('sim-widget');
+
+      // Reset components
+      waveText.innerText = 'Listening to meeting audio...';
+      transcript.innerHTML = '';
+      answerCard.style.display = 'none';
+      answerContent.innerHTML = '';
+      statusText.innerText = '🎙️ Simulated session started. Interviewer speaks...';
+      codeTab.classList.add('active');
+      diagramTab.classList.remove('active');
+      widget.classList.remove('invisible-mode');
+      widget.style.opacity = '1';
+      
+      // Step 1: Simulated speech transcription
+      const q1 = "Could you write a python function to reverse a string in-place?";
+      let charIdx = 0;
+      transcript.style.opacity = '1';
+      transcript.innerHTML = '<span class="speaker-tag">Interviewer:</span> ';
+      
+      simInterval = setInterval(() => {
+        if (charIdx < q1.length) {
+          transcript.innerHTML += q1.charAt(charIdx);
+          charIdx++;
+        } else {
+          clearInterval(simInterval);
+          statusText.innerText = '🧠 Live Meet AI processing question...';
+          waveText.innerText = 'Generating optimal solution...';
+          
+          // Step 2: Stream back Code solution
+          simTimeout = setTimeout(() => {
+            answerCard.style.display = 'block';
+            statusText.innerText = '⚡ Streaming coding solution overlay...';
+            
+            const pythonCode = `def reverse_in_place(chars):\n    left, right = 0, len(chars) - 1\n    while left < right:\n        chars[left], chars[right] = chars[right], chars[left]\n        left, right = left + 1, right - 1\n\n# Time Complexity: O(N)\n# Space Complexity: O(1)`;
+            let lineIdx = 0;
+            const codeLines = pythonCode.split('\n');
+            answerContent.innerHTML = '<pre><code></code></pre>';
+            const codeBlock = answerContent.querySelector('code');
+            
+            simInterval = setInterval(() => {
+              if (lineIdx < codeLines.length) {
+                codeBlock.innerHTML += codeLines[lineIdx] + '\n';
+                lineIdx++;
+              } else {
+                clearInterval(simInterval);
+                statusText.innerText = '✅ Code streamed. Waiting for follow-up...';
+                waveText.innerText = 'Listening for follow-up...';
+                
+                // Step 3: Interviewer follow-up about SQL
+                simTimeout = setTimeout(() => {
+                  transcript.innerHTML = '<span class="speaker-tag">Interviewer:</span> ';
+                  const q2 = "Great. How do SQL joins work? Explain briefly.";
+                  charIdx = 0;
+                  
+                  simInterval = setInterval(() => {
+                    if (charIdx < q2.length) {
+                      transcript.innerHTML += q2.charAt(charIdx);
+                      charIdx++;
+                    } else {
+                      clearInterval(simInterval);
+                      statusText.innerText = '📊 Diagram generator active...';
+                      waveText.innerText = 'Drawing joins relationship...';
+                      
+                      // Step 4: Stream Joins Diagram
+                      simTimeout = setTimeout(() => {
+                        codeTab.classList.remove('active');
+                        diagramTab.classList.add('active');
+                        
+                        answerContent.innerHTML = `
+                          <div class="sql-demo-container">
+                            <p style="font-size: 0.8rem; margin-bottom: 10px; color: #a7f3d0;">LEFT JOIN: Returns all rows from left table (A) + matches from right (B).</p>
+                            <div class="circles-wrapper">
+                              <div class="circle circle-a"><span>Table A</span></div>
+                              <div class="circle circle-b"><span>Table B</span></div>
+                            </div>
+                            <ul style="font-size: 0.75rem; color: #9ca3af; margin-top: 10px; padding-left: 15px;">
+                              <li>Inner Join: Only overlapping records</li>
+                              <li>Left Join: Highlights all A + intersection</li>
+                            </ul>
+                          </div>
+                        `;
+                        statusText.innerText = '✨ Interactive SQL diagram displayed.';
+                        
+                        // Step 5: Screen share invisibility test phase
+                        simTimeout = setTimeout(() => {
+                          statusText.innerText = '🖥️ Screen Share Test: Interviewer views your desktop!';
+                          
+                          // Alert visual: Show simulated Zoom share view overlaying
+                          const alertOverlay = document.createElement('div');
+                          alertOverlay.className = 'share-alert-banner';
+                          alertOverlay.innerText = 'Zoom Screen Share Mode Active';
+                          document.getElementById('simulator-screen').appendChild(alertOverlay);
+                          
+                          // Trigger protection toggle demo loop
+                          let toggleCount = 0;
+                          simInterval = setInterval(() => {
+                            if (toggleCount < 4) {
+                              toggleSimProtection();
+                              toggleCount++;
+                            } else {
+                              clearInterval(simInterval);
+                              alertOverlay.remove();
+                              statusText.innerText = '🎉 Demo Complete! Try the standalone app.';
+                              waveText.innerText = 'Simulator ready.';
+                            }
+                          }, 2000);
+                        }, 4000);
+                      }, 1000);
+                    }
+                  }, 40);
+                }, 3000);
+              }
+            }, 250);
+          }, 1000);
+        }
+      }, 40);
+    }
+
+    // Auto-run simulation on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      startInteractiveDemo();
+    });
+  </script>
+</body>
+</html>
